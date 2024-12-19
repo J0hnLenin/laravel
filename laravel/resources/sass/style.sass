@@ -1,0 +1,213 @@
+@import '~bootstrap/scss/bootstrap.scss'
+
+$pink: #ffc8dd
+$dark_pink: #ff8fab
+$purple: #cdb4db
+$blue: #bde0fe
+$dark_blue: #a2d2ff
+$black: black
+$darker_pink: #fb6f92
+
+$ice: #e0fbfc
+$snow: #c2dfe3
+$gray: #9db4c0
+$clay: #5c6b73
+
+$n: 5
+$tile_bg_colors: #8ab5be, #f5d088, #dfa589, #f5edd5, #889094
+$tile_border_colors: #006073, #EE9B00, #BB3E03, #E9D8A6, #001219
+
+@mixin box($color, $i)
+    box-shadow: #{$i}px -3px 3px darken($color, $i*5%)
+
+@mixin tile-style($bg-color, $border_colors, $text-color)
+    background-color: $bg-color
+    color: $text-color
+    border: $border_colors solid 2px
+    box-shadow: 5px 5px 5px $border_colors
+
+@mixin region-style($bg-color, $border_colors, $text-color)
+    background-color: $bg-color
+    color: $text-color
+    border: $border_colors solid 2px
+
+@mixin button-style($bg-border_color)
+    border: $bg-border_color solid 2px
+
+@media (min-width: 2000px)
+    .row-cols-extralarge-5 > *
+        flex: 0 0 18%
+
+body
+    display: flex
+    background-color: $snow
+    background: $snow
+    flex-direction: column
+    align-items: center
+    justify-items: center
+
+.cont
+    width: 100%
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-content: center
+
+.cards
+    align-content: center
+    justify-content: center
+
+
+.logo
+    max-height: 50px
+    max-width: 50px
+    overflow: hidden
+    margin-bottom: 10px
+    border-bottom-left-radius: 5px
+    border-bottom-right-radius: 5px
+
+
+.button-upload
+    height: 75%
+    padding: 5px 5px
+    background-color: $pink
+    border: $dark_pink  solid 2px
+    border-radius: 5px
+    color: $darker_pink
+
+.button-upload:hover
+    background-color: #FA8094
+    border: #FA8094  solid 2px
+    border-radius: 5px
+    color: #fff
+
+.button-upload:target
+    background-color: #FA8094
+    border: #FA8094  solid 2px
+    border-radius: 5px
+    color: #fff
+
+@for $i from 1 through 3
+    .card:nth-child(3n + #{$i})
+        box-shadow: 2px -3px 3px #FA8094
+
+.load
+    padding: 5px
+    animation: spin 2s linear infinite
+
+@keyframes spin
+    0%
+        transform: rotate(0deg)
+    50%
+        transform: rotate(180deg)
+    100%
+        transform: rotate(0deg)
+
+img
+    overflow: hidden
+    width: 100%
+    max-height: 150px
+    max-width: 150px
+
+.card-my
+    width: 18rem
+    box-shadow: 2px -3px 3px #FA8094
+    display: flex
+    background-color:  #fff
+    padding: 20px
+    margin: 20px
+    background-color: $pink
+    border: $dark_pink solid 2px
+    border-radius: 5px
+
+    position: relative
+
+.card-text
+    width: 100%
+
+nav
+    background-color: $ice
+    border: $clay solid 2px
+    width: 90%
+    .header-left
+        display: flex
+        align-items: center
+        padding: 10px
+        .fav
+            .fav-image
+                height: 70px
+        .header-text
+            color: $black
+    .header-right
+        display: flex
+        padding: 10px
+        .button-upload
+            border: $clay
+            background-color: $clay
+            color: white
+            border-radius: 10px
+            height: 35px
+            width: 75px
+        .notify
+            position: absolute
+            top: 20px 
+            right: 20px
+            flex-direction: row
+            justify-items: space-between
+            justify-content: space-between
+
+.button-cont
+    display: flex
+    height: 100%
+    align-items: center
+
+
+
+
+
+
+
+
+
+
+
+
+
+.data
+    position: absolute
+    top: 10px
+    left: 10px
+    font-size: 0.7rem
+    padding: 2px
+    border-radius: 3px
+    background-color: $pink
+    border: $dark_pink solid 2px
+
+.footer
+    border-top: 2px solid $darker_pink
+    width: 100%
+    display: flex
+    justify-items: center
+    align-items: center
+    position: relative
+    .footer-item
+        width: 100%
+        height: 100%
+        .footer-left
+            display: flex
+            justify-content: end
+            .author
+                margin-right: 352px
+                color: $darker_pink
+        .footer-right
+            display: flex
+            justify-content: start
+            align-content: center
+            .icons
+                display: flex
+                vertical-align: middle
+                height: 100%
+                margin-left: 271px
+                .icon-image
+                    padding: 5px
+                    height: 50px
