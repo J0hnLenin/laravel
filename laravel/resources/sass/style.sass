@@ -1,13 +1,8 @@
 @import '~bootstrap/scss/bootstrap.scss'
 
-$pink: #ffc8dd
-$dark_pink: #ff8fab
-$purple: #cdb4db
 $blue: #bde0fe
 $dark_blue: #a2d2ff
 $black: black
-$darker_pink: #fb6f92
-
 $ice: #e0fbfc
 $snow: #c2dfe3
 $gray: #9db4c0
@@ -20,16 +15,11 @@ $tile_border_colors: #006073, #EE9B00, #BB3E03, #E9D8A6, #001219
 @mixin box($color, $i)
     box-shadow: #{$i}px -3px 3px darken($color, $i*5%)
 
-@mixin tile-style($bg-color, $border_colors, $text-color)
+@mixin card-style($bg-color, $border_colors, $text-color)
     background-color: $bg-color
     color: $text-color
     border: $border_colors solid 2px
     box-shadow: 5px 5px 5px $border_colors
-
-@mixin region-style($bg-color, $border_colors, $text-color)
-    background-color: $bg-color
-    color: $text-color
-    border: $border_colors solid 2px
 
 @mixin button-style($bg-border_color)
     border: $bg-border_color solid 2px
@@ -57,40 +47,6 @@ body
     align-content: center
     justify-content: center
 
-
-.logo
-    max-height: 50px
-    max-width: 50px
-    overflow: hidden
-    margin-bottom: 10px
-    border-bottom-left-radius: 5px
-    border-bottom-right-radius: 5px
-
-
-.button-upload
-    height: 75%
-    padding: 5px 5px
-    background-color: $pink
-    border: $dark_pink  solid 2px
-    border-radius: 5px
-    color: $darker_pink
-
-.button-upload:hover
-    background-color: #FA8094
-    border: #FA8094  solid 2px
-    border-radius: 5px
-    color: #fff
-
-.button-upload:target
-    background-color: #FA8094
-    border: #FA8094  solid 2px
-    border-radius: 5px
-    color: #fff
-
-// @for $i from 1 through 3
-//     .card:nth-child(3n + #{$i})
-//         box-shadow: 2px -3px 3px #FA8094
-
 .load
     padding: 5px
     animation: spin 2s linear infinite
@@ -111,33 +67,16 @@ img
 
 @for $i from 1 through 5
     .card-my:nth-child(5n+#{$i})
-        @include tile-style(nth($tile_bg_colors, $i), nth($tile_border_colors, $i), $black)
+        @include card-style(nth($tile_bg_colors, $i), nth($tile_border_colors, $i), $black)
         padding: 15px
         margin: 10px
         border-radius: 10px
         position: relative
-    .region
-        @include region-style(nth($tile_bg_colors, $i), nth($tile_border_colors, $i), $black)
-        position: absolute
-        top: 10px
-        left: 10px
-        font-size: 1.2rem
-        padding: 2px
-        border-radius: 3px
     .card-text
         margin-bottom: 40px
-    .my-card-footer
-        position: absolute
-        bottom: 5px
-        width: 95%
-        margin-left: auto
-        margin-right: auto
-        left: 0
-        right: 0
-        text-align: center
-        .info-button
-            width: 100%
-            @include button-style(nth($tile_border_colors, $i))
+    .button-upload
+        width: 100%
+        @include button-style(nth($tile_border_colors, $i))
 
 nav
     background-color: $ice
@@ -184,7 +123,6 @@ nav
     border-radius: 3px
     background-color: $pink
     border: $dark_pink solid 2px
-
 
 footer
     flex-shrink: 0
